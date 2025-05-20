@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
+import { categoryLinks } from "@/utils/constant";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,19 +13,8 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const categoryLinks = [
-    {
-      name: "Tech & Electronics",
-      slug: "tech-electronics",
-    },
-    {
-      name: "Health & Wellness",
-      slug: "health-wellness",
-    },
-  ];
-
   return (
-    <header className="sticky py-3 top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
+    <header className="sticky py-2 sm:py-3 top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
       <div className="wrapper">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -36,6 +26,7 @@ export default function Header() {
                 width={110}
                 height={30}
                 priority
+                className="w-[5.5rem] sm:w-[7rem]"
               />
             </Link>
           </div>

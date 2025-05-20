@@ -19,16 +19,16 @@ export default async function Home() {
       <div className="font-[family-name:var(--font-geist-sans)]">
         {data.blogsByCategory.map((item) => (
           <section
-            key={item.category}
+            key={item.category.slug}
             className="odd:bg-gray-50 even:bg-white py-12 sm:py-16 lg:py-20"
           >
             <div className="wrapper space-y-8 flex flex-col items-center">
               <div className="flex justify-between gap-5 flex-wrap w-full">
                 <h2 className="text1 font-extrabold text-gray-900">
-                  {item.category}
+                  {item.category.name}
                 </h2>
                 <Link
-                  href={`/blogs/${item.category}`}
+                  href={`/blogs/${item.category.slug}`}
                   className="primary-btn flex gap-2 items-center"
                 >
                   View All <FaArrowRightLong />

@@ -1,3 +1,4 @@
+import { categoryLinks } from "@/utils/constant";
 import Image from "next/image";
 import Link from "next/link";
 import { FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
@@ -6,7 +7,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-950 text-white pt-16 pb-8">
       <div className="wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* About Section */}
           <div className="lg:col-span-2">
             <Image
@@ -63,46 +64,24 @@ const Footer = () => {
           </div>
 
           {/* Categories */}
-          <div className="justify-self-end">
+          <div className="lg:justify-self-end">
             <h3 className="text-xl font-bold mb-4">Categories</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/category/technology"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/lifestyle"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Lifestyle
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/health"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Health & Fitness
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/finance"
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  Finance
-                </Link>
-              </li>
+              {categoryLinks.map(({ name, slug }) => (
+                <li key={slug}>
+                  <Link
+                    href={`/category/${slug}`}
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    {name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Quick Links */}
-          <div className="justify-self-end">
+          {/* <div className="lg:justify-self-end">
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
@@ -138,7 +117,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <hr className="border-gray-700 my-8" />
@@ -157,10 +136,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="text-center text-gray-400 text-sm">
-          <p>
-            &copy; {new Date().getFullYear()} Recovo. All rights
-            reserved.
-          </p>
+          <p>&copy; {new Date().getFullYear()} Recovo. All rights reserved.</p>
         </div>
       </div>
     </footer>
