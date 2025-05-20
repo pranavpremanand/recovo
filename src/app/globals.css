@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
+@layer utilities {
+  .wrapper {
+    @apply max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .text1 {
+    @apply text-3xl font-bold sm:text-4xl;
+  }
+  .text2 {
+    @apply text-lg md:text-xl font-bold text-white;
+  }
+  .desc {
+    @apply text-base font-normal;
+  }
+  .primary-btn {
+    @apply bg-[color:var(--primary)] hover:bg-[color:var(--primary-hover)] text-white rounded-4xl py-2 px-4 transition-all duration-200;
+  }
+  .link {
+    @apply hover:underline cursor-pointer text-[color:var(--primary)] hover:text-[color:var(--primary-hover)];
+  }
+}
+
+.blog-content * {
+  all: revert;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #2085b5;
+  --primary-hover: #1c749d;
+  --secondary: #ef8637;
+  --secondary-hover: #d96e1c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+/* Remove dark mode classes and replace with light theme */
+.dark\:invert {
+  filter: none;
+}
+
+.dark\:border-white\/\[\.145\] {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.dark\:hover\:bg-\[\#1a1a1a\]:hover {
+  background-color: #f2f2f2;
+}
+
+.dark\:hover\:bg-\[\#ccc\]:hover {
+  background-color: #383838;
+}
+
+.dark\:bg-white\/\[\.06\] {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Custom button styles */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--foreground);
+  border-radius: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Custom card styles */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
 }
