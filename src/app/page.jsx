@@ -28,7 +28,7 @@ export default async function Home() {
                   {item.category.name}
                 </h2>
                 <Link
-                  href={`/blogs/${item.category.slug}`}
+                  href={`/category/${item.category.slug}`}
                   className="primary-btn flex gap-2 items-center"
                 >
                   View All <FaArrowRightLong />

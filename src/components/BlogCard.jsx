@@ -42,7 +42,7 @@ const BlogCard = ({ blog }) => {
             <FaTag className="mr-1" size={12} />
             <Link
               href={`/category/${blog.categoryId.slug}`}
-              className="hover:text-accent transition-colors"
+              className="hover:text-[color:var(--primary)] transition-colors"
             >
               {blog.categoryId.name}
             </Link>
